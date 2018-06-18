@@ -1,0 +1,64 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Product Name</label>
+        <input type="text" class="form-control" name="name" formControlName="name" #name [(ngModel)] = "adunit.name"/>
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || 
+      angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Product Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Price</label>
+        <input type="text" class="form-control" name="price" formControlName="price" #price [(ngModel)] = "adunit.price"/>
+      </div>
+      <div *ngIf="angForm.controls['price'].invalid && (angForm.controls['price'].dirty || angForm.controls['price'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['price'].errors.required">
+          Price is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Description</label>
+        <input type="text" class="form-control" name="description" formControlName="description" #description [(ngModel)] = "adunit.description"/>
+      </div>
+      <div *ngIf="angForm.controls['description'].invalid && (angForm.controls['description'].dirty || angForm.controls['description'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['description'].errors.required">
+          Description is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Product Image</label>
+        <input type="text" class="form-control" name="image" formControlName="image" #link [(ngModel)] = "adunit.link"/>
+      </div>
+      <div *ngIf="angForm.controls['image'].invalid && (angForm.controls['image'].dirty || angForm.controls['image'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['image'].errors.required">
+          img is required.
+        </div>
+      </div>
+      <div class="form-group">
+          <label class="col-md-4">Link</label>
+          <input type="text" class="form-control" name="link" formControlName="link" #link [(ngModel)] = "adunit.link"/>
+        </div>
+        <div *ngIf="angForm.controls['link'].invalid && (angForm.controls['link'].dirty || angForm.controls['link'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['link'].errors.required">
+              link is required.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Currency</label>
+            <input type="text" class="form-control" name="currency" formControlName="currency" #currency [(ngModel)] = "adunit.currency"/>
+          </div>
+          <div *ngIf="angForm.controls['currency'].invalid && (angForm.controls['currency'].dirty || angForm.controls['currency'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['currency'].errors.required">
+                currency is required.
+            </div>
+          </div>
+      <div class="form-group">
+        <button (click)="updateAdUnit(name, price, description, image, link, currency)" [disabled]="angForm.invalid" class="btn btn-primary">Update Unit</button>
+      </div>
+    </form>
+  </div>
+</div>

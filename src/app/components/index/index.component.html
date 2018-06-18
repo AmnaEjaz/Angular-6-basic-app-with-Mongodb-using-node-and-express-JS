@@ -1,0 +1,23 @@
+
+<div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg" >Search</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Large" [(ngModel)]="term" aria-describedby="inputGroup-sizing-sm">
+ </div> <br>
+<div class="row">
+  <div class="card" class="col-sm-4"style="width: 18rem;" *ngFor="let adunit of adunits| paginate: { itemsPerPage: 12, currentPage: p } |filter:term">
+    <a  href="{{adunit.link}}"><img class="card-img-top" class="card-img-top" src="{{adunit.image}}" alt="Card image cap"></a>
+    <div class="card-body">
+      <h5 class="card-title">{{adunit.name}}</h5>
+      <p class="card-text"><strong>Price:</strong> {{adunit.price}}-{{adunit.currency}} </p>
+      <a [routerLink]="['/edit', adunit._id]" class="btn btn-primary">Edit</a>
+      <button (click)="deleteAdUnit(adunit._id)"  class="btn btn-danger">Delete</button>
+      <a [routerLink]="['/view', adunit._id]" class="btn btn-primary">View Description</a>
+      
+    </div>
+  </div>
+</div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+ 
